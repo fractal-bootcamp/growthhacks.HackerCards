@@ -1,5 +1,4 @@
 export interface CardInfo {
-  default: boolean;
   name: string;
   imageUrl: string;
   summary: string;
@@ -13,7 +12,6 @@ export interface CardInfo {
 }
 
 export const defaultCardInfo: CardInfo = {
-  default: true,
   name: "Default Name",
   imageUrl: "Default image url",
   summary: "Default Summary",

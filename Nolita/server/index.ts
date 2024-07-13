@@ -78,7 +78,7 @@ app.get("/api/browse", async (req, res) => {
     })
   );
   const urlArr: string[] = answer.urls;
-  const urls: string[] = urlArr.slice(0, 2);
+  const urls: string[] = urlArr.slice(0, 9);
 
   console.log(urls);
 
@@ -141,7 +141,7 @@ app.get("/api/browse", async (req, res) => {
 
     return res.json(cardContent);
 
-    console.log("Card Content: ", cardContent);
+    // console.log("Card Content: ", cardContent);
 
     // const limitedPosts = postUrls.slice(0, 2);
 
