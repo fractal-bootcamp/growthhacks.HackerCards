@@ -19,37 +19,9 @@ export type AgentEvent = {
   };
 };
 
-export const listenToStream = (
-  url: string,
-  objective: string,
-  callback: (res: AgentEvent) => void
-) => {
-  eventSource = new EventSource(
-    `${baseUrl}/api/browse?url=${encodeURIComponent(
-      url
-    )}&objective=${encodeURIComponent(objective)}&maxIterations=10`
+export const listenToStream = async (url: string) => {
+  const res = await fetch(
+    `${baseUrl}/api/browse?url=${encodeURIComponent(url)}&maxIterations=10`
   );
-  eventSource.onmessage = function (event) {
-    let response;
-    try {
-      response = JSON.parse(event.data);
-    } catch (e) {
-      return;
-    }
-    console.log(response);
-    if (response.done) {
-      console.log("done");
-      eventSource?.close();
-    }
-    if (!response.done) {
-      callback(response);
-    }
-  };
-  eventSource.onerror = function (error) {
-    console.error("EventSource failed:", error);
-    eventSource?.close();
-  };
-};
-export const stopListening = () => {
-  eventSource?.close();
+  return res.json();
 };
