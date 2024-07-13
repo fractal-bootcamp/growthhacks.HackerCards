@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { AgentEvent, , listenToStream, stopListening } from "./lib/events";
+import { AgentEvent, listenToStream, stopListening } from "./lib/events";
 import { CardInfo, defaultCardInfo } from "../../../Cards";
 type Status = "working" | "success" | "fail" | "idle";
 
@@ -13,7 +13,7 @@ function App() {
   );
   const [events, setEvents] = React.useState<string[]>([]);
   const [status, setStatus] = React.useState<Status>("idle");
-  const [cardInfo, setCardInfo] = React.useState<CardInfo>(defaultCardInfo);
+  const [cardInfo, setCardInfo] = React.useState<CardInfo | null>(null);
   const handleEvent = (input: AgentEvent) => {
     setEvents((prev: string[]) => {
       if (input?.["objectiveComplete"]) {

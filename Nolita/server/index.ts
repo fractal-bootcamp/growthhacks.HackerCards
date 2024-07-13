@@ -107,6 +107,11 @@ app.get("/api/browse", async (req, res) => {
           .describe(
             "Describe the summary of the stories in two sentences as though you were writing a description for a collectible card based on this profile"
           ),
+        // imageUrl: z
+        //   .string()
+        //   .describe(
+        //     "return the URL for the image tag where the alt text includes 'profile picture' with the author's profile image "
+        //   ),
         ability1: z
           .string()
           .describe(
@@ -133,6 +138,11 @@ app.get("/api/browse", async (req, res) => {
             "determine a number based on the number of articles written by the author"
           ),
         topics: z.array(z.string()).describe("The list of topics"),
+        fileType: z
+          .string()
+          .describe(
+            "pick a filetype to associate the user with based on their profile: R, apple, argdown, asm, audio, babel, bazel, bicep, bower, bsl, c-sharp, c, cake, cake_php, checkbox-unchecked, checkbox, cjsx, clock, clojure, code-climate, code-search, coffee, coffee_erb, coldfusion, config, cpp, crystal, crystal_embedded, css, csv, cu, d, dart, db, default, deprecation-cop, docker, editorconfig, ejs, elixir, elixir_script, elm, error, eslint, ethereum, f-sharp, favicon, firebase, firefox, folder, font, git, git_folder, git_ignore, github, gitlab, go, go2, godot, gradle, grails, graphql, grunt, gulp, hacklang, haml, happenings, haskell, haxe, heroku, hex, html, html_erb, ignored, illustrator, image, info, ionic, jade, java, javascript, jenkins, jinja, js_erb, json, julia, karma, kotlin, less, license, liquid, livescript, lock, lua, makefile, markdown, maven, mdo, mustache, new-file, nim, notebook, npm, npm_ignored, nunjucks, ocaml, odata, pddl, pdf, perl, photoshop, php, pipeline, plan, platformio, powershell, prisma, project, prolog, pug, puppet, purescript, python, rails, react, reasonml, rescript, rollup, ruby, rust, salesforce, sass, sbt, scala, search, settings, shell, slim, smarty, spring, stylelint, stylus, sublime, svelte, svg, swift, terraform, tex, time-cop, todo, tsconfig, twig, typescript, vala, video, vue, wasm, wat, webpack, wgt, windows, word, xls, xml, yarn, yml, zig, zip "
+          ),
       }),
       { mode: "html" }
     );
