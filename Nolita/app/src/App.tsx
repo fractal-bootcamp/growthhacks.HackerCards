@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { AgentEvent, CardInfo, defaultCardInfo, listenToStream, stopListening } from "./lib/events";
-
+import { AgentEvent, , listenToStream, stopListening } from "./lib/events";
+import { CardInfo, defaultCardInfo } from "../../../Cards";
 type Status = "working" | "success" | "fail" | "idle";
 
 function App() {
