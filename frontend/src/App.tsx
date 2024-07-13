@@ -1,6 +1,6 @@
 import Card from "./components/Card";
-import fileIcon from "./assets/icons/svelte.svg";
-import charizard from "./assets/charizard.png";
+import fileIcon from "/assets/icons/svelte.svg";
+import charizard from "/assets/charizard.png";
 import { useEffect, useState } from "react";
 const cardProps = {
   name: "Charizard",
@@ -12,7 +12,7 @@ const cardProps = {
   svgPath: fileIcon
 };
 const fileTypeToPath = (fileType: string) => {
-  return `src/assets/icons/${fileType}.svg`;
+  return `/assets/icons/${fileType}.svg`;
 };
 const fileTypes = [
   "R",
