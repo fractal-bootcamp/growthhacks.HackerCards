@@ -1,35 +1,207 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Card from "./components/Card";
+import fileIcon from "./assets/icons/svelte.svg";
+import charizard from "./assets/charizard.png";
+import { useEffect, useState } from "react";
+const cardProps = {
+  name: "Charizard",
+  imageUrl: charizard,
+  type: "Fire",
+  hp: 100,
+  attack: 100,
+  defense: 100,
+  svgPath: fileIcon
+};
+const fileTypeToPath = (fileType: string) => {
+  return `src/assets/icons/${fileType}.svg`;
+};
+const fileTypes = [
+  "R",
+  "apple",
+  "argdown",
+  "asm",
+  "audio",
+  "babel",
+  "bazel",
+  "bicep",
+  "bower",
+  "bsl",
+  "c-sharp",
+  "c",
+  "cake",
+  "cake_php",
+  "checkbox-unchecked",
+  "checkbox",
+  "cjsx",
+  "clock",
+  "clojure",
+  "code-climate",
+  "code-search",
+  "coffee",
+  "coffee_erb",
+  "coldfusion",
+  "config",
+  "cpp",
+  "crystal",
+  "crystal_embedded",
+  "css",
+  "csv",
+  "cu",
+  "d",
+  "dart",
+  "db",
+  "default",
+  "deprecation-cop",
+  "docker",
+  "editorconfig",
+  "ejs",
+  "elixir",
+  "elixir_script",
+  "elm",
+  "error",
+  "eslint",
+  "ethereum",
+  "f-sharp",
+  "favicon",
+  "firebase",
+  "firefox",
+  "folder",
+  "font",
+  "git",
+  "git_folder",
+  "git_ignore",
+  "github",
+  "gitlab",
+  "go",
+  "go2",
+  "godot",
+  "gradle",
+  "grails",
+  "graphql",
+  "grunt",
+  "gulp",
+  "hacklang",
+  "haml",
+  "happenings",
+  "haskell",
+  "haxe",
+  "heroku",
+  "hex",
+  "html",
+  "html_erb",
+  "ignored",
+  "illustrator",
+  "image",
+  "info",
+  "ionic",
+  "jade",
+  "java",
+  "javascript",
+  "jenkins",
+  "jinja",
+  "js_erb",
+  "json",
+  "julia",
+  "karma",
+  "kotlin",
+  "less",
+  "license",
+  "liquid",
+  "livescript",
+  "lock",
+  "lua",
+  "makefile",
+  "markdown",
+  "maven",
+  "mdo",
+  "mustache",
+  "new-file",
+  "nim",
+  "notebook",
+  "npm",
+  "npm_ignored",
+  "nunjucks",
+  "ocaml",
+  "odata",
+  "pddl",
+  "pdf",
+  "perl",
+  "photoshop",
+  "php",
+  "pipeline",
+  "plan",
+  "platformio",
+  "powershell",
+  "prisma",
+  "project",
+  "prolog",
+  "pug",
+  "puppet",
+  "purescript",
+  "python",
+  "rails",
+  "react",
+  "reasonml",
+  "rescript",
+  "rollup",
+  "ruby",
+  "rust",
+  "salesforce",
+  "sass",
+  "sbt",
+  "scala",
+  "search",
+  "settings",
+  "shell",
+  "slim",
+  "smarty",
+  "spring",
+  "stylelint",
+  "stylus",
+  "sublime",
+  "svelte",
+  "svg",
+  "swift",
+  "terraform",
+  "tex",
+  "time-cop",
+  "todo",
+  "tsconfig",
+  "twig",
+  "typescript",
+  "vala",
+  "video",
+  "vue",
+  "wasm",
+  "wat",
+  "webpack",
+  "wgt",
+  "windows",
+  "word",
+  "xls",
+  "xml",
+  "yarn",
+  "yml",
+  "zig",
+  "zip"
+];
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [clock, setClock] = useState(0);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setClock(clock + 1);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [clock]);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Card
+        data={{
+          ...cardProps,
+          svgPath: fileTypeToPath(fileTypes[clock % fileTypes.length])
+        }}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
