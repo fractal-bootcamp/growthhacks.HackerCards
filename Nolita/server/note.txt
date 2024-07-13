@@ -1,0 +1,4 @@
+give me the first author
+go to their page 
+find their posts
+with these posts, give me their HP/Stats - do the summarization step
