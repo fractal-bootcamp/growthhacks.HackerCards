@@ -9,7 +9,7 @@ export interface CardInfo {
   weakness: string;
   HP: number;
   topics: string[];
-  // fileType: string;
+  fileType: string;
 }
 
 export const defaultCardInfo: CardInfo = {
@@ -23,5 +23,19 @@ export const defaultCardInfo: CardInfo = {
   weakness: "Default Weakness",
   HP: 100,
   topics: ["Default Topic 1", "Default Topic 2"],
-  // fileType: "SVG",
+  fileType: "python"
+};
+export const fakeCardInfo: CardInfo = {
+  default: true,
+  name: "Sarah Ren",
+  imageUrl: "/assets/hackerMouse.webp",
+  summary:
+    "Fullstack developer wielding AI and TypeScript, exploring websockets, Redis, and AWS. Poasts with flair, mouse-tering the web dev landscape byte by byte.",
+  ability1: "Schema cleanup",
+  ability2: "Recurse (see Special Attack)",
+  specialattack: "Recursion",
+  weakness: "Rust, Noobs",
+  HP: 75,
+  topics: ["Quick builds", "Responsivity"],
+  fileType: "typescript"
 };
