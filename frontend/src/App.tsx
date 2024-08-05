@@ -1,16 +1,10 @@
 import Card from "./components/Card";
-import fileIcon from "/assets/icons/svelte.svg";
+// import fileIcon from "/assets/icons/svelte.svg";
 import charizard from "/assets/charizard.png";
 import { useEffect, useState } from "react";
-const cardProps = {
-  name: "Charizard",
-  imageUrl: charizard,
-  type: "Fire",
-  hp: 100,
-  attack: 100,
-  defense: 100,
-  svgPath: fileIcon
-};
+import { defaultCardInfo } from "../../Nolita/app/src/Cards";
+
+const cardProps = defaultCardInfo;
 const fileTypeToPath = (fileType: string) => {
   return `/assets/icons/${fileType}.svg`;
 };
@@ -195,10 +189,9 @@ function App() {
   return (
     <>
       <Card
-        data={{
-          ...cardProps,
-          svgPath: fileTypeToPath(fileTypes[clock % fileTypes.length])
-        }}
+        {...cardProps}
+        imageUrl={charizard}
+        svgPath={fileTypeToPath(fileTypes[clock % fileTypes.length])}
       />
     </>
   );

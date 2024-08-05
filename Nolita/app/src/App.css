@@ -7,17 +7,19 @@ body {
   font-family: sans-serif;
 }
 
-@keyframes blinker {
+@keyframes flash {
   0% {
-    opacity: 0;
+    transform: rotate(45deg) translateX(-500%) translateY(-30%);
   }
-  75% {
-    opacity: 1;
+  100% {
+    transform: rotate(45deg) translateX(500%) translateY(-30%);
   }
 }
 
-.blinker::after {
-  content: "_";
-  display: inline-block;
-  animation: blinker 0.75s ease-in-out infinite;
+.flash-animation {
+  position: relative;
+}
+
+.animate-flash {
+  animation: flash 1.5s linear infinite;
 }
