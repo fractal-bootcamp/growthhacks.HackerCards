@@ -81,10 +81,10 @@ const Card = (data: CardProps) => {
             {/* Below Portrait bottom */}
             <div className="flex justify-between text-xs">
               <p className="text-gray-700">
-                <b>Known for:</b> {topics.join(", ")}
+                <b>Str:</b> {topics.join(", ")}
               </p>
               <p className="text-gray-700">
-                <b>Weakness:</b> {weakness}
+                <b>Wk:</b> {weakness}
               </p>
             </div>
           </div>
